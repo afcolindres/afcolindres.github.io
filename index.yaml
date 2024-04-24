@@ -3,12 +3,12 @@ entries:
   apidrf:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-04-23T21:46:03.7812747-06:00"
+    created: "2024-04-23T22:23:25.5473278-06:00"
     description: A Helm chart for Kubernetes go challenge
-    digest: c750ec65fb4727611905baec117b4e82f592927650a360d647eb26b72966e4d2
+    digest: 7dd44fe3c370d7af15096554a847354dbbd70cc09929dd64608e5458f856b22f
     name: apidrf
     type: application
     urls:
     - apidrf-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-23T21:46:03.7752437-06:00"
+generated: "2024-04-23T22:23:25.5340892-06:00"

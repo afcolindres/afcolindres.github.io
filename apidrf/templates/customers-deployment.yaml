@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -c
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: customers
+  name: customers
+spec:
+  replicas: {{.Values.frontReplicaCount}}
+  selector:
+    matchLabels:
+      io.kompose.service: customers
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -c
+        kompose.version: 1.32.0 (765fde254)
+      labels:
+        io.kompose.network/drf-api-djangonetwork: "true"
+        io.kompose.service: customers
+    spec:
+      containers:
+        - env:
+            - name: PG_HOST
+              value: 172.25.213.177
+            - name: PG_NAME
+              value: postgres
+            - name: PG_PASSWORD
+              value: postgres
+            - name: PG_PORT
+              value: "5432"
+            - name: PG_USER
+              value: postgres
+          image: acolindres/customers
+          name: customers
+          type: LoadBalancer
+          ports:
+            - containerPort: 80
+              hostPort: 80
+              protocol: TCP
+      restartPolicy: Always
