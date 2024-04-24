@@ -1,4 +1,4 @@
-frontReplicaCount: 3
-backReplicaCount: 3
+frontReplicaCount: 1
+backReplicaCount: 1
 
 appTitle: Api django
